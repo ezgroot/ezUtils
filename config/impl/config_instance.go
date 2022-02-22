@@ -9,6 +9,7 @@ import (
 	"github.com/ezgroot/ezUtils/config/impl/data"
 	"github.com/ezgroot/ezUtils/config/impl/ini"
 	"github.com/ezgroot/ezUtils/config/impl/json"
+	"github.com/ezgroot/ezUtils/config/impl/toml"
 	"github.com/ezgroot/ezUtils/config/impl/yaml"
 )
 
@@ -17,6 +18,7 @@ const (
 	fileTypeIni  = ".ini"
 	fileTypeJSON = ".json"
 	fileTypeYaml = ".yaml"
+	fileTypeToml = ".toml"
 )
 
 // Config is core of config.
@@ -47,6 +49,9 @@ func (c *Config) ConfigInit(filePath string) error {
 	} else if fileSuffix == fileTypeYaml {
 		c.fileType = fileTypeYaml
 		c.translator = yaml.GetYaml()
+	} else if fileSuffix == fileTypeToml {
+		c.fileType = fileTypeToml
+		c.translator = toml.GetToml()
 	} else {
 		return fmt.Errorf("config file type = %s not support", fileSuffix)
 	}

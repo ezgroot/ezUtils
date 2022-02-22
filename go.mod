@@ -3,6 +3,7 @@ module github.com/ezgroot/ezUtils
 go 1.16
 
 require (
+	github.com/BurntSushi/toml v1.0.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-ldap/ldap v3.0.3+incompatible
